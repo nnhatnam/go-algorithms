@@ -4,7 +4,6 @@ import (
 	//"fmt"
 	//"internal/testenv"
 	"math"
-	"math/rand"
 	//. "sort"
 	"sort"
 	//"strconv"
@@ -108,32 +107,25 @@ func TestSortStringSlice(t *testing.T) {
 //	}
 //}
 
-func TestSortLarge_Random(t *testing.T) {
-	n := 1000000
-	if testing.Short() {
-		n /= 100
-	}
-	data := make([]int, n)
-	for i := 0; i < len(data); i++ {
-		data[i] = rand.Intn(100)
-	}
-	if sort.IntsAreSorted(data) {
-		t.Fatalf("terrible rand.rand")
-	}
-	sort.Ints(data)
-
-	selection := sort.IntSlice(data[0:])
-	SelectionSort(selection)
-
-	if !sort.IsSorted(selection) {
-		//t.Errorf("original %v", ints)
-		//t.Errorf("sorted %v", sorted)
-		//t.Errorf("   got %v", selection)
-		//t.Log('Selection Sort ')
-		t.Errorf("Selection Sort: sort didn't sort - 1M ints")
-	}
-
-	if !sort.IntsAreSorted(data) {
-		t.Errorf("sort didn't sort - 1M ints")
-	}
-}
+//func TestSelectionSortLarge_Random(t *testing.T) {
+//	n := 100000
+//	if testing.Short() {
+//		n /= 100
+//	}
+//	data := make([]int, n)
+//	for i := 0; i < len(data); i++ {
+//		data[i] = rand.Intn(100)
+//	}
+//	if sort.IntsAreSorted(data) {
+//		t.Fatalf("terrible rand.rand")
+//	}
+//	//sort.Ints(data)
+//
+//	selection := sort.IntSlice(data[0:])
+//	SelectionSort(selection)
+//
+//	if !sort.IsSorted(selection) {
+//		t.Errorf("Selection Sort: sort didn't sort - 1M ints")
+//	}
+//
+//}
