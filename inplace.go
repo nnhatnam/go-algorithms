@@ -201,3 +201,32 @@ func CombSort(data sort.Interface) {
 		}
 	}
 }
+
+func OddEvenSort(data sort.Interface) {
+	
+}
+
+func CocktailSort(data sort.Interface) {
+	start := 1
+	//do - while
+	//should not use for loop this way
+	for  flag := false  ; !flag ; flag = !flag {
+		for i := start ; i < data.Len() ; i++ {
+			if data.Less(i , i-1) {
+				data.Swap(i, i - 1)
+				flag = true
+			}
+		}
+
+		if !flag {
+			return
+		}
+
+		for i := data.Len() - 1 - start; i > start ; i-- {
+			if data.Less(i, i - 1 ) {
+				data.Swap(i , i - 1)
+				flag = true
+			}
+		}
+	}
+}
