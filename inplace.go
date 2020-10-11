@@ -1,4 +1,4 @@
-package go_sorts
+package sorts
 
 import (
 	"sort"
@@ -141,3 +141,63 @@ func HeapSort(data sort.Interface) {
 	heapSort(data, 0, data.Len())
 }
 
+// b is length from 0 to index b - 1
+//func mergeSort(data sort.Interface, a, b int) {
+//	lo := 0
+//	n := b / 2
+//
+//	mergeSort(data, )
+//}
+
+
+func GnomeSort(data sort.Interface) {
+
+		//i :  item after the in order items
+		//j :  pointer to next value
+		for i, j := 1 ,2  ; i < data.Len(); {
+			if data.Less(i, i - 1) {
+				data.Swap(i , i - 1)
+				i--
+				if i > 0 {
+					continue
+				}
+			}
+
+			i = j
+			j = i + 1
+		}
+}
+
+func BubbleSort(data sort.Interface) {
+
+	for i := 0; i < data.Len(); i++{
+		swapped  := false
+		for j:= 1; i < data.Len(); j++{
+			if data.Less(j, j - 1) {
+				data.Swap(j, j - 1)
+				swapped  = true
+			}
+		}
+		if !swapped  {
+			return
+		}
+	}
+}
+
+func CombSort(data sort.Interface) {
+	swapped := false
+	for gap := data.Len(); gap > 1 || swapped ; {
+
+		if gap > 1 {
+			//gap = gap / 1.3
+			gap = gap * 10 / 13
+		}
+
+		for i := gap; i < data.Len(); i++ {
+			if data.Less(i - gap, i) {
+				data.Swap(i - gap, i )
+				swapped = true
+			}
+		}
+	}
+}
