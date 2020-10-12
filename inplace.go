@@ -219,7 +219,7 @@ func OddEvenSort(data sort.Interface) {
 				isSort = false
 			}
 		}
-		
+
 	}
 }
 
