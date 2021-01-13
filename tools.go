@@ -44,7 +44,7 @@ func reversing(data sort.Interface, lo , hi int) {
 }
 
 //https://github.com/BonzaiThePenguin/WikiSort/blob/master/Chapter%201.%20Tools.md
-//rotate using reversal algorithm 
+//rotate using reversal algorithm
 func rotating(data sort.Interface, lo , hi , amount int) {
 	reversing(data, lo , lo + amount - 1)
 	reversing(data, lo + amount , hi)
